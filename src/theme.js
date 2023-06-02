@@ -1,6 +1,10 @@
 import { createContext, useState, useMemo } from "react";
 import { createTheme } from "@mui/material/styles";
 
+// #102542  #FCAA67
+// #A6D49F
+//#ED254E
+
 // creating color palette
 export const tokens = {
   white: {
