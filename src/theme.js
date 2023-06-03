@@ -1,12 +1,88 @@
 import { createContext, useState, useMemo } from "react";
 import { createTheme } from "@mui/material/styles";
 
-// #102542  #FCAA67
-// #A6D49F
-//#ED254E
+// // black: {
+//      100: "#cfd3d9",
+//      200: "#9fa8b3",
+//      300: "#707c8e",
+//      400: "#405168",
+//      500: "#102542",
+//      600: "#0d1e35",
+//      700: "#0a1628",
+//      800: "#060f1a",
+//      900: "#03070d"
+// },
+//   yellow: {
+//           100: "#feeee1",
+//           200: "#feddc2",
+//           300: "#fdcca4",
+//           400: "#fdbb85",
+//           500: "#fcaa67",
+//           600: "#ca8852",
+//           700: "#97663e",
+//           800: "#654429",
+//           900: "#322215"
+// },
+// // gray: {
+//      100: "#edf6ec",
+//      200: "#dbeed9",
+//      300: "#cae5c5",
+//      400: "#b8ddb2",
+//      500: "#a6d49f",
+//      600: "#85aa7f",
+//      700: "#647f5f",
+//      800: "#425540",
+//      900: "#212a20"
+// },
+// //red: {
+//     100: "#fbd3dc",
+//     200: "#f8a8b8",
+//     300: "#f47c95",
+//     400: "#f15171",
+//     500: "#ed254e",
+//     600: "#be1e3e",
+//     700: "#8e162f",
+//     800: "#5f0f1f",
+//     900: "#2f0710"
+// },
+// grey: {
+//   100: "#e0e0e0",
+//   200: "#c2c2c2",
+//   300: "#a3a3a3",
+//   400: "#858585",
+//   500: "#666666",
+//   600: "#525252",
+//   700: "#3d3d3d",
+//   800: "#292929",
+//   900: "#141414",
+// },
 
 // creating color palette
 export const tokens = {
+  primary: {
+    100: "#cfd3d9",
+    200: "#9fa8b3",
+    300: "#707c8e",
+    400: "#405168",
+    500: "#102542",
+    600: "#0d1e35",
+    700: "#0a1628",
+    800: "#060f1a",
+    900: "#03070d",
+  },
+
+  accent: {
+    100: "#fbd3dc",
+    200: "#f8a8b8",
+    300: "#f47c95",
+    400: "#f15171",
+    500: "#ed254e",
+    600: "#be1e3e",
+    700: "#8e162f",
+    800: "#5f0f1f",
+    900: "#2f0710",
+  },
+
   white: {
     100: "#fcfcfc",
     200: "#faf9f9",
@@ -29,53 +105,36 @@ export const tokens = {
     800: "#292929",
     900: "#141414",
   },
-  primary: {
-    100: "#f2f0f0",
-    200: "#a1a4ab",
-    300: "#727681",
-    400: "#1F2A40",
-    500: "#141b2d",
-    600: "#101624",
-    700: "#0c101b",
-    800: "#080b12",
-    900: "#040509",
-  },
-  indigoAccent: {
-    100: "#e1e2fe",
-    200: "#c3c6fd",
-    300: "#a4a9fc",
-    400: "#868dfb",
-    500: "#6870fa",
-    600: "#535ac8",
-    700: "#3e4396",
-    800: "#2a2d64",
-    900: "#151632",
-  },
 };
 
 // theme settings
 export const themeSettings = (mode) => {
   return {
     palette: {
+      accent: {
+        main: tokens.accent[500],
+        light: tokens.accent[400],
+        dark: tokens.accent[600],
+      },
       mode: mode,
       ...(mode === "dark"
         ? {
             // palette values for dark mode
             primary: {
-              main: tokens.indigoAccent[500],
+              main: tokens.primary[500],
               light: tokens.primary[400],
               dark: tokens.primary[600],
-              lighter: tokens.primary[300],
             },
+            font: tokens.grey[100],
           }
         : {
             // palette values for light mode
             primary: {
-              main: "#f2f0f0",
-              light: tokens.primary[100],
+              main: tokens.white[500],
+              light: tokens.primary[300],
               dark: tokens.primary[600],
-              lighter: tokens.primary[300],
             },
+            font: tokens.grey[800],
           }),
     },
     typography: {

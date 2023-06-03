@@ -1,5 +1,5 @@
 import { useTheme } from "@emotion/react";
-import { Box, Button } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 import { ColorModeContext } from "../theme";
 import { useContext } from "react";
 
@@ -8,7 +8,7 @@ const Home = () => {
   const colorMode = useContext(ColorModeContext);
   return (
     <Box>
-      <p>click to change theme</p>
+      <Typography color={theme.palette.font}>click to change theme</Typography>
       <Button onClick={colorMode.toggleColorMode}>Click</Button>
     </Box>
   );

@@ -1,17 +1,13 @@
-import { Box, IconButton, useTheme, Badge } from "@mui/material";
-import { useContext, useState } from "react";
+import { Box, IconButton, useTheme } from "@mui/material";
+import { useContext } from "react";
 import { ColorModeContext } from "../../theme";
 import { InputBase } from "@mui/material";
 import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
-import NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutlined";
+
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import SearchIcon from "@mui/icons-material/Search";
-import Notifications from "../notifications";
-import { mockDataNotifications } from "../../data/mockData";
-import LogoutDialog from "../logoutDialog";
-import { mockDataUser } from "../../data/mockData";
 
 const Topbar = () => {
   const theme = useTheme();
@@ -22,7 +18,7 @@ const Topbar = () => {
       {/* search bar */}
       <Box
         display="flex"
-        backgroundColor={theme.palette.primary.main}
+        backgroundColor={theme.palette.accent.main}
         borderRadius="3px"
       >
         <InputBase sx={{ ml: 2, flex: 1 }} placeholder="Search" />
@@ -41,25 +37,11 @@ const Topbar = () => {
             <LightModeOutlinedIcon />
           )}
         </IconButton>
-        {mockDataUser.login && (
-          <IconButton
-            onClick={() => {
-              setNotificationsIsOpen(true);
-            }}
-          >
-            <Badge color="firstAccentColor" badgeContent={notificationsNumber}>
-              <NotificationsOutlinedIcon />
-            </Badge>
-          </IconButton>
-        )}
-        <IconButton onClick={openOptionsHandler}>
+
+        <IconButton>
           <SettingsOutlinedIcon />
         </IconButton>
-        <IconButton
-          onClick={() => {
-            setLogoutIsOpen(true);
-          }}
-        >
+        <IconButton>
           <PersonOutlinedIcon />
         </IconButton>
       </Box>
