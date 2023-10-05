@@ -69,8 +69,10 @@ const AnimeGridLayout = ({ id, params, stopAt = false, path }: Props) => {
           setAnimeList(transformedData);
           setLoading(false);
         }
-      } catch (err: any) {
-        return <Error message={err.message} />;
+      } catch (error: unknown) {
+        if (error instanceof Error) {
+          return <Error message={error.message} />;
+        }
       }
     };
     animeListHandler();

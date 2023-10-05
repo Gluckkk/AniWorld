@@ -8,13 +8,13 @@ import Series from "./scenes/Series";
 import Movies from "./scenes/Movies";
 import Top100 from "./scenes/Top100";
 import Genres from "./scenes/Genres";
-
 import Footer from "./scenes/global/Footer";
 import Anime from "./scenes/Anime";
 import Login from "./scenes/Login";
 import SignUp from "./scenes/SignUp";
 import Account from "./scenes/Account";
 import AccountSettings from "./scenes/AccountSettings.tsx";
+import Error from "./components/error.tsx";
 
 import { StateProvider } from "./state/stateContext.tsx";
 
@@ -48,6 +48,10 @@ function App() {
               <Route path="/movies/:id" element={<Movies />} />
               <Route path="/top-100/:id" element={<Top100 />} />
               <Route path="/genres/:genre/:page" element={<Genres />} />
+              <Route
+                path="*"
+                element={<Error message="This page wasn't found" />}
+              />
             </Routes>
           </div>
           <Footer />

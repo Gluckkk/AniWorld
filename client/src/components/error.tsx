@@ -1,5 +1,5 @@
 import { Box, Typography, useTheme } from "@mui/material";
-interface ErrorType {
+export interface ErrorType {
   message: string;
 }
 
